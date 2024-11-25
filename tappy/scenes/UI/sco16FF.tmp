@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://e2ddh6h6jja8"]
+
+[ext_resource type="Script" path="res://scenes/UI/score.gd" id="1_6onwn"]
+[ext_resource type="LabelSettings" uid="uid://bhflas0u70gpd" path="res://assets/fonts/score_settingstres.tres" id="2_6117r"]
+
+[node name="score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6onwn")
+
+[node name="score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 73.0
+text = "0"
+label_settings = ExtResource("2_6117r")
+horizontal_alignment = 1
+vertical_alignment = 1

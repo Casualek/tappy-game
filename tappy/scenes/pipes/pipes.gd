@@ -36,3 +36,4 @@ func _pipe_body_entered(body: Node2D) -> void:
 func _laser_body_entered(body: Node2D) -> void:
 	if body is Tappy:
 		score_sound.play()
+		ScoreManager.increment_score()

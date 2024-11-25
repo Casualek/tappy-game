@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://j2qms8ydrg35"]
+[gd_scene load_steps=7 format=3 uid="uid://j2qms8ydrg35"]
 
 [ext_resource type="Texture2D" uid="uid://djvlpe8lw1t2j" path="res://assets/background/rocks_2.png" id="1_2klqr"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_o1846"]
 [ext_resource type="PackedScene" uid="uid://dors2yg4iij10" path="res://scenes/plane/plane.tscn" id="2_axh57"]
 [ext_resource type="PackedScene" uid="uid://bb5lh664vrk1d" path="res://scenes/barier/barier.tscn" id="3_kc0xc"]
+[ext_resource type="PackedScene" uid="uid://badrsebrah4bi" path="res://scenes/UI/game_over.tscn" id="5_u8fmd"]
+[ext_resource type="PackedScene" uid="uid://e2ddh6h6jja8" path="res://scenes/UI/score.tscn" id="6_3b11k"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_o1846")
@@ -13,7 +15,7 @@ position = Vector2(297, 327)
 texture = ExtResource("1_2klqr")
 
 [node name="plane" parent="." instance=ExtResource("2_axh57")]
-position = Vector2(45, 434)
+position = Vector2(81, 417)
 
 [node name="floor_ceiling" parent="." instance=ExtResource("3_kc0xc")]
 position = Vector2(-2, -26)
@@ -32,5 +34,11 @@ wait_time = 1.2
 autostart = true
 
 [node name="pipesHolder" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="gameOver" parent="CanvasLayer" instance=ExtResource("5_u8fmd")]
+
+[node name="highscore" parent="CanvasLayer" instance=ExtResource("6_3b11k")]
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer"]
