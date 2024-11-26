@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci7tax6vso2b0"]
+
+[ext_resource type="Script" path="res://scenes/background/background.gd" id="1_hlkfm"]
+
+[node name="background" type="Parallax2D"]
+follow_viewport = false
+ignore_camera_scroll = true
+script = ExtResource("1_hlkfm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
