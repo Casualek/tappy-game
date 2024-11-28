@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://kihxaqmwpbwu"]
+
+[ext_resource type="Script" path="res://scenes/transition/transition.gd" id="1_k723o"]
+[ext_resource type="Texture2D" uid="uid://tibpxa430o71" path="res://assets/background/sky.png" id="2_a0y8o"]
+[ext_resource type="LabelSettings" uid="uid://c1l3x2hrux0c1" path="res://assets/fonts/title_settings.tres" id="3_yc12w"]
+
+[node name="transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k723o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_a0y8o")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -36.5
+offset_right = 162.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+label_settings = ExtResource("3_yc12w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

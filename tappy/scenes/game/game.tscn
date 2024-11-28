@@ -1,18 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://j2qms8ydrg35"]
+[gd_scene load_steps=12 format=3 uid="uid://j2qms8ydrg35"]
 
 [ext_resource type="Texture2D" uid="uid://djvlpe8lw1t2j" path="res://assets/background/rocks_2.png" id="1_2klqr"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_o1846"]
 [ext_resource type="PackedScene" uid="uid://dors2yg4iij10" path="res://scenes/plane/plane.tscn" id="2_axh57"]
+[ext_resource type="PackedScene" uid="uid://bjpkq2csf13di" path="res://scenes/scrolling_BG/scroling_bg.tscn" id="2_b0c2r"]
+[ext_resource type="PackedScene" uid="uid://ci7tax6vso2b0" path="res://scenes/background/background.tscn" id="2_gg6di"]
+[ext_resource type="Texture2D" uid="uid://tibpxa430o71" path="res://assets/background/sky.png" id="3_4rgks"]
 [ext_resource type="PackedScene" uid="uid://bb5lh664vrk1d" path="res://scenes/barier/barier.tscn" id="3_kc0xc"]
+[ext_resource type="Texture2D" uid="uid://butrc4eo4jrar" path="res://assets/background/clouds_2.png" id="4_sw0ll"]
+[ext_resource type="Texture2D" uid="uid://dicar7wil6df8" path="res://assets/background/rocks_1.png" id="5_lpx1l"]
 [ext_resource type="PackedScene" uid="uid://badrsebrah4bi" path="res://scenes/UI/game_over.tscn" id="5_u8fmd"]
 [ext_resource type="PackedScene" uid="uid://e2ddh6h6jja8" path="res://scenes/UI/score.tscn" id="6_3b11k"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_o1846")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(297, 327)
+[node name="paralaxBG" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, 427)
+
+[node name="background" parent="paralaxBG" instance=ExtResource("2_gg6di")]
+scroll_scale = Vector2(0, 0)
+texture = ExtResource("3_4rgks")
+
+[node name="background2" parent="paralaxBG" instance=ExtResource("2_gg6di")]
+scroll_scale = Vector2(0.3, 0.3)
+autoscroll = Vector2(-20, 0)
+texture = ExtResource("4_sw0ll")
+
+[node name="background3" parent="paralaxBG" instance=ExtResource("2_gg6di")]
+scroll_scale = Vector2(0.5, 0.5)
+autoscroll = Vector2(-50, 0)
+texture = ExtResource("5_lpx1l")
+
+[node name="background4" parent="paralaxBG" instance=ExtResource("2_gg6di")]
+scroll_scale = Vector2(0.75, 0.75)
+autoscroll = Vector2(-80, 0)
 texture = ExtResource("1_2klqr")
+
+[node name="scrolingBG" parent="." instance=ExtResource("2_b0c2r")]
 
 [node name="plane" parent="." instance=ExtResource("2_axh57")]
 position = Vector2(81, 417)
